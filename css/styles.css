@@ -1,0 +1,93 @@
+:root {
+  --dark: #0b0911;
+  --light: #fff5f7;
+  --accent: #78fedd;
+  --alt-accent: #ffbc51;
+  --lg: 50px;
+  --display-font: 'Abril Fatface', serif;
+  --copy-font: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  /* Full-screen background image */
+  background-image: url("../assets/orangeglitters.JPG");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+  display: grid;
+  grid-template-columns: var(--lg) auto var(--lg);
+  grid-template-rows: var(--lg) auto var(--lg);
+  align-items: stretch;
+  justify-content: center;
+  align-content: center;
+  grid-auto-flow: column;
+}
+
+main {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+footer {
+  color: var(--accent);
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  font-family: var(--copy-font);
+}
+
+h1, h2, h3 {
+  color: var(--accent);
+  font-family: var(--display-font);
+  font-size: 5em;
+  letter-spacing: .02em;
+}
+
+#date {
+  color: var(--alt-accent);
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes burst {
+  0%   { transform: scale(0); opacity: 1; }
+  80%  { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+#date.burst::after {
+  content: "✨✨✨";
+  position: absolute;
+  top: -1em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  animation: burst 0.8s forwards;
+}
+#date.secret {
+  cursor: pointer;
+  text-decoration: underline dotted;
+}
+#date.secret:hover { filter: brightness(1.15); }
+
+a, a:link, a:hover, a:active, a:visited {
+  color: var(--accent);
+  font-weight: 900;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) { h1 { font-size: 3em; } }
+@media (max-width: 400px) { h1 { font-size: 2em; } }
